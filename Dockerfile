@@ -8,5 +8,6 @@ RUN chmod +x mysqld_exporter && mv mysqld_exporter /tmp/mysqld_exporter
 
 FROM  quay.io/prometheus/busybox:latest
 COPY --from=build ["/tmp/mysqld_exporter", "/bin/" ]
+COPY entrypoint.sh /bin/
 EXPOSE      9104
-ENTRYPOINT  [ "/bin/mysqld_exporter" ]
+ENTRYPOINT [ "/bin/entrypoint.sh" ]
