@@ -1,4 +1,4 @@
-FROM golang:1.12.6-alpine as build
+FROM golang:1.15.7-alpine as build
 WORKDIR ${GOPATH}/src/github.com/quintoandar
 RUN apk update && apk add make git curl && git clone https://github.com/quintoandar/mysqld_exporter.git
 WORKDIR ${GOPATH}/src/github.com/quintoandar/mysqld_exporter
